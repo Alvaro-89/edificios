@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Apartment number:</strong>
+  <strong>Número de departamento:</strong>
   <%= @apartment.apartment_number %>
 </p>
 
 <p>
-  <strong>Building:</strong>
-  <%= @apartment.building_id %>
+  <strong>Edificio:</strong>
+  <%= @apartment.building.name %>
 </p>
 
-<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
-<%= link_to 'Back', apartments_path %>
+<p>
+  <strong>Ciudad:</strong>
+  <%= @apartment.building.city %>
+</p>
+
+<%= link_to 'Editar departamento', edit_apartment_path(@apartment) %> |
+<%= link_to 'Volver', apartments_path %>

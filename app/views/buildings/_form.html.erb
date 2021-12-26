@@ -1,32 +1,37 @@
-<%= form_with(model: building) do |form| %>
-  <% if building.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(building.errors.count, "error") %> prohibited this building from being saved:</h2>
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: building) do |form| %>
+      <% if building.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(building.errors.count, "error") %> prohibited this building from being saved:</h2>
 
-      <ul>
-        <% building.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% building.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+      <div class="mb-3">
+        <%= form.label "Nombre", class:'form-label' %>
+        <%= form.text_field :name, class:'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label "Dirección", class:'form-label' %>
+        <%= form.text_field :address, class:'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label "Ciudad", class:'form-label' %>
+        <%= form.text_field :city, class:'form-control' %>
+      </div>
+
+      <div class="mb-3 text-end">
+        <%= link_to "Cancelar", buildings_path, class:'btn btn-light mr-3' %>
+        <%= form.submit "Registrar", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

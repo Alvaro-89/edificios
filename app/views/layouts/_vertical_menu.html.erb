@@ -1,0 +1,44 @@
+<nav class="vertical-menu col-lg-2 col-md-4 col-sm-0">
+  <div class="row">
+    <div class="col">
+      <h4 class="titulo text-center">
+      Edificios 🏢
+      </h4>
+    </div>
+  </div>
+  <div class="container">
+    <ul>
+      <li class="separador mb-1 mt-3">
+        <strong>Edificios</strong>
+      </li>
+      <li>
+        <%= link_to buildings_path, class:"option" do %>
+          <i class="bi bi-card-checklist"></i>
+          Lista de edificios
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_building_path, class:"option" do%>
+          <i class="bi bi-plus-circle"></i>
+          Crear edificio
+        <% end %>
+      </li>
+      
+      <li class="separador mb-1 mt-3">
+        <strong>Departamentos</strong>
+      </li>
+      <li>
+        <%= link_to apartments_path, class:"option" do %>
+          <i class="bi bi-card-checklist"></i>
+          Lista de departamentos
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_apartment_path, class:"option" do%>
+          <i class="bi bi-plus-circle"></i>
+          Crear departamento
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

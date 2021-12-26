@@ -1,27 +1,44 @@
-<%= form_with(model: apartment) do |form| %>
-  <% if apartment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: p_apartment) do |form| %>
+      <% if p_apartment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(p_apartment.errors.count, "error") %> No se ha podido guardar este departamento:</h2>
 
-      <ul>
-        <% apartment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% p_apartment.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :apartment_number %>
-    <%= form.text_field :apartment_number %>
+      <div class="mb-3">
+        <%= form.label "Número de departamento", class:'form-label' %>
+        <%= form.text_field :apartment_number, class: 'form-control' %>
+      </div>
+
+      <!--
+      <div class="mb-3">
+        <%= form.label 'ID Edificio', class:'form-label' %>
+        <%= form.text_field :building_id, class:'form-control' %>
+      </div>
+      -->
+
+      <div class="mb-3">
+        <%= form.label :building_id %>
+        <%= form.select :building_id,
+        options_from_collection_for_select(@buildings, :id, :name, p_apartment.building_id),
+        {include_blank: "Selecciona el edificio del departamento"},
+        class: 'form-select'
+        %>
+      </div>
+
+      <div class="mb-3 text-end">
+        <%= link_to "Cancelar", apartments_path, class: 'btn btn-light mr-3' %>
+        <%= form.submit 'Registrar', class: 'btn btn-primary' %>
+      </div>
+
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :building_id %>
-    <%= form.text_field :building_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -1,0 +1,45 @@
+$primary: #005655;
+$secondary: #398676;
+$warning: #F3A244;
+$danger: #e23015;
+
+@import '~bootstrap/scss/bootstrap';
+
+$fondo-gris: #f4f7fa;
+$fondo-menu: #00AAAA;
+
+body{
+  background-color: $fondo-gris;
+}
+
+td{
+  vertical-align: middle;
+}
+
+.vertical-menu{
+  position: fixed;
+  height: 100%;
+  background-color: $fondo-menu;
+
+  .titulo{
+    padding: 1rem;
+  }
+
+  ul{
+    list-style: none;
+  }
+
+  li .option{
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+
+    &:hover{
+      background-color: white;
+      color: $fondo-menu;
+    }
+  }
+}
